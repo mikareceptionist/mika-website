@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mika-website",
+  "compatibility_date": "2026-06-23",
+  "assets": {
+    "directory": ".",
+    "exclude": [
+      ".git",
+      ".gitignore",
+      "wrangler.jsonc",
+      "README.md",
+      "index_golive.html"
+    ]
+  },
+  "observability": {
+    "enabled": true
+  },
+  "env": {
+    "staging": {
+      "name": "mika-website-staging"
+    }
+  }
+}

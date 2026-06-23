@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mika — AI Receptionist for Law Firms</title>
+  <meta name="description" content="Mika answers every call, takes intake, and notifies your attorneys — day, night, and weekends. Built by a practicing attorney." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      padding: 40px 24px;
+    }
+
+    .glow {
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(255,107,53,0.10) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .logo-mark {
+      width: 56px;
+      height: 56px;
+      background: #ff6b35;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+    }
+
+    .logo-mark svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+    }
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+    }
+
+    .logo-sub {
+      font-size: 12px;
+      color: #555;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 52px;
+    }
+
+    .headline {
+      font-size: 38px;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .headline span { color: #ff6b35; }
+
+    .subhead {
+      font-size: 16px;
+      color: #777;
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .divider {
+      width: 36px;
+      height: 2px;
+      background: #ff6b35;
+      margin: 0 auto 36px;
+      border-radius: 2px;
+    }
+
+    .pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .pill {
+      background: #141414;
+      border: 0.5px solid #242424;
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12px;
+      color: #888;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .pill-dot {
+      width: 5px;
+      height: 5px;
+      background: #ff6b35;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .quote {
+      font-size: 15px;
+      color: #999;
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 14px;
+      padding: 0 8px;
+    }
+
+    .quote cite {
+      display: block;
+      margin-top: 10px;
+      font-style: normal;
+      font-size: 12px;
+      color: #444;
+    }
+
+    .notify-section { margin-bottom: 16px; margin-top: 40px; }
+
+    .notify-label {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .notify-form {
+      display: flex;
+      gap: 8px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .notify-form input {
+      flex: 1;
+      background: #141414;
+      border: 0.5px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 11px 16px;
+      font-size: 14px;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .notify-form input::placeholder { color: #3a3a3a; }
+    .notify-form input:focus { border-color: #ff6b35; }
+    .notify-form input.error { border-color: #e24b4a; }
+
+    .notify-form button {
+      background: #ff6b35;
+      border: none;
+      border-radius: 10px;
+      padding: 11px 22px;
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .notify-form button:hover { background: #e55a25; }
+    .notify-form button:disabled { background: #333; color: #666; cursor: default; }
+
+    .fine-print {
+      font-size: 12px;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    .success-msg {
+      display: none;
+      font-size: 14px;
+      color: #4caf82;
+      margin-top: 8px;
+      padding: 10px;
+    }
+
+    .error-msg {
+      display: none;
+      font-size: 13px;
+      color: #e24b4a;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 480px) {
+      .headline { font-size: 28px; }
+      .notify-form { flex-direction: column; }
+      .notify-form button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+
+  <div class="container">
+
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+      </svg>
+    </div>
+    <div class="logo-text">mika</div>
+    <div class="logo-sub">AI Receptionist for Law Firms</div>
+
+    <div class="headline">Your front desk,<br><span>working 24/7.</span></div>
+    <div class="subhead">Mika answers every call, takes intake, and notifies your attorneys — day, night, and weekends. Built by a practicing attorney who got tired of the alternatives.</div>
+
+    <div class="divider"></div>
+
+    <div class="pills">
+      <div class="pill"><span class="pill-dot"></span>Learns your firm in 10 seconds</div>
+      <div class="pill"><span class="pill-dot"></span>ElevenLabs voice quality</div>
+      <div class="pill"><span class="pill-dot"></span>Real-time attorney notifications</div>
+      <div class="pill"><span class="pill-dot"></span>Built for law firms only</div>
+    </div>
+
+    <div class="quote">
+      "The human receptionist services failed because they were impersonal. Mika never is."
+      <cite>— Ben Hiltzheimer, CEO &amp; Co-founder · Practicing criminal defense attorney, 20+ years</cite>
+    </div>
+
+    <div class="notify-section">
+      <div class="notify-label">Be first to know when we launch</div>
+      <div class="notify-form">
+        <input type="email" id="email-input" placeholder="your@lawfirm.com" autocomplete="email" />
+        <button id="submit-btn" onclick="handleSubmit()">Notify me</button>
+      </div>
+      <div class="success-msg" id="success-msg">✓ You're on the list. We'll be in touch.</div>
+      <div class="error-msg" id="error-msg">Something went wrong. Please try again.</div>
+      <div class="fine-print">No spam. Launch announcement only.</div>
+    </div>
+
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://vkyxzwmqwtvgjudhhvbb.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZreXh6d21xd3R2Z2p1ZGhodmJiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3NDEyODAsImV4cCI6MjA5NTMxNzI4MH0.Yc5kW7efPwGg4D0Q9ptWAswUATyISHQW9oIrvV-p46Y';
+
+    async function handleSubmit() {
+      const input = document.getElementById('email-input');
+      const btn = document.getElementById('submit-btn');
+      const successMsg = document.getElementById('success-msg');
+      const errorMsg = document.getElementById('error-msg');
+      const email = input.value.trim();
+
+      errorMsg.style.display = 'none';
+      input.classList.remove('error');
+
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        input.classList.add('error');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Saving...';
+
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({ email })
+        });
+
+        if (res.ok || res.status === 409) {
+          input.style.display = 'none';
+          btn.style.display = 'none';
+          successMsg.style.display = 'block';
+        } else {
+          throw new Error('Server error');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Notify me';
+        errorMsg.style.display = 'block';
+      }
+    }
+
+    document.getElementById('email-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') handleSubmit();
+    });
+  </script>
+</body>
+</html>

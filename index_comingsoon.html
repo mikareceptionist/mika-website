@@ -10,7 +10,7 @@
 
     body {
       min-height: 100vh;
-      background: #0a0a0a;
+      background: #111111;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -25,7 +25,7 @@
       transform: translateX(-50%);
       width: 800px;
       height: 800px;
-      background: radial-gradient(circle, rgba(255,107,53,0.10) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,140,0,0.12) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
@@ -40,18 +40,13 @@
     .logo-mark {
       width: 56px;
       height: 56px;
-      background: #ff6b35;
+      background: linear-gradient(135deg, #FF8C00, #FFB800);
       border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 18px;
-    }
-
-    .logo-mark svg {
-      width: 30px;
-      height: 30px;
-      fill: white;
+      box-shadow: 0 8px 24px rgba(255,140,0,0.32);
     }
 
     .logo-text {
@@ -79,7 +74,7 @@
       letter-spacing: -0.5px;
     }
 
-    .headline span { color: #ff6b35; }
+    .headline span { color: #FF8C00; }
 
     .subhead {
       font-size: 16px;
@@ -91,7 +86,7 @@
     .divider {
       width: 36px;
       height: 2px;
-      background: #ff6b35;
+      background: #FF8C00;
       margin: 0 auto 36px;
       border-radius: 2px;
     }
@@ -119,7 +114,7 @@
     .pill-dot {
       width: 5px;
       height: 5px;
-      background: #ff6b35;
+      background: #FF8C00;
       border-radius: 50%;
       flex-shrink: 0;
     }
@@ -169,11 +164,11 @@
     }
 
     .notify-form input::placeholder { color: #3a3a3a; }
-    .notify-form input:focus { border-color: #ff6b35; }
+    .notify-form input:focus { border-color: #FF8C00; }
     .notify-form input.error { border-color: #e24b4a; }
 
     .notify-form button {
-      background: #ff6b35;
+      background: linear-gradient(135deg, #FF8C00, #FFB800);
       border: none;
       border-radius: 10px;
       padding: 11px 22px;
@@ -182,11 +177,11 @@
       color: white;
       cursor: pointer;
       white-space: nowrap;
-      transition: background 0.15s;
+      transition: opacity 0.15s;
     }
 
-    .notify-form button:hover { background: #e55a25; }
-    .notify-form button:disabled { background: #333; color: #666; cursor: default; }
+    .notify-form button:hover { opacity: 0.88; }
+    .notify-form button:disabled { background: #333; color: #666; cursor: default; opacity: 1; }
 
     .fine-print {
       font-size: 12px;
@@ -222,8 +217,12 @@
   <div class="container">
 
     <div class="logo-mark">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
+        <rect x="2" y="11" width="3.5" height="10" rx="1.75" fill="white"/>
+        <rect x="8" y="7" width="3.5" height="18" rx="1.75" fill="white"/>
+        <rect x="14" y="4" width="3.5" height="24" rx="1.75" fill="white"/>
+        <rect x="20" y="8" width="3.5" height="16" rx="1.75" fill="white"/>
+        <rect x="26" y="12" width="3.5" height="8" rx="1.75" fill="white" opacity="0.75"/>
       </svg>
     </div>
     <div class="logo-text">mika</div>

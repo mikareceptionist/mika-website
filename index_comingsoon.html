@@ -167,6 +167,25 @@ src="https://www.facebook.com/tr?id=746642248493749&ev=PageView&noscript=1"
   .why-callout-name { font-weight: 700; font-size: 14px; color: var(--white); }
   .why-callout-title { font-size: 12px; color: #888; }
 
+  .integrations { padding: 100px 5%; background: var(--white); }
+  .integrations-inner { max-width: 1100px; margin: 0 auto; }
+  .integrations-header { text-align: center; margin-bottom: 56px; }
+  .integrations-header .section-title { margin: 0 auto; }
+  .integrations-header .section-desc { margin: 16px auto 0; text-align: center; }
+  .integrations-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; max-width: 680px; margin: 0 auto; }
+  .integration-card { background: var(--white); border: 1px solid #e8e5e0; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); transition: box-shadow 0.2s, transform 0.2s; }
+  .integration-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.09); transform: translateY(-2px); }
+  .integration-logo { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .integration-logo-clio { background: #1B4F8A; }
+  .integration-logo-text { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: white; letter-spacing: -0.02em; }
+  .integration-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(27,79,138,0.08); border: 1px solid rgba(27,79,138,0.15); border-radius: 100px; padding: 3px 10px; width: fit-content; }
+  .integration-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #4BA3E3; flex-shrink: 0; }
+  .integration-badge-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #1B4F8A; }
+  .integration-name { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em; color: var(--dark); line-height: 1.2; }
+  .integration-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .integrations-more { text-align: center; margin-top: 36px; font-size: 13px; color: #aaa; letter-spacing: 0.02em; }
+  @media (max-width: 768px) { .integrations { padding: 72px 5%; } .integrations-grid { grid-template-columns: 1fr; max-width: 100%; } }
+
   .pricing { background: var(--light); padding: 100px 5%; }
   .pricing-inner { max-width: 900px; margin: 0 auto; text-align: center; }
   .pricing-card { background: var(--white); border-radius: 24px; padding: 60px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 20px 60px rgba(0,0,0,0.06); margin-top: 60px; position: relative; overflow: hidden; }
@@ -495,6 +514,30 @@ src="https://www.facebook.com/tr?id=746642248493749&ev=PageView&noscript=1"
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="integrations">
+  <div class="integrations-inner">
+    <div class="integrations-header">
+      <div class="section-label">Integrations</div>
+      <h2 class="section-title">Works With the Tools You Already Use</h2>
+      <p class="section-desc">Mika connects to your existing workflow — no manual entry, no missed leads.</p>
+    </div>
+    <div class="integrations-grid">
+      <div class="integration-card">
+        <div class="integration-logo integration-logo-clio">
+          <span class="integration-logo-text">C</span>
+        </div>
+        <div class="integration-badge">
+          <div class="integration-badge-dot"></div>
+          <span class="integration-badge-label">Clio Grow</span>
+        </div>
+        <div class="integration-name">Clio Grow</div>
+        <p class="integration-desc">Every caller Mika speaks with is automatically sent to your Clio Grow inbox with their name, phone number, and call summary. Your attorneys see new leads the moment the call ends — no copy-paste, no delays.</p>
+      </div>
+    </div>
+    <p class="integrations-more">More integrations coming soon.</p>
   </div>
 </section>
 

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMS Notification Terms — Mika Technologies, LLC</title>
+<meta name="description" content="SMS notification terms and opt-in disclosure for Mika AI Receptionist.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --orange: #FF8C00; --amber: #FFB800; --dark: #111111; --dark2: #1a1a1a;
+    --mid: #444; --muted: #888; --light: #f5f2ed; --white: #ffffff;
+    --grad: linear-gradient(135deg, #FF8C00, #FFB800);
+  }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: #edeae5; border-bottom: 1px solid rgba(0,0,0,0.07); padding: 0 5%; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-cta { background: var(--dark); color: var(--white); padding: 10px 22px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--orange); }
+
+  .page-header { background: var(--dark2); padding: 120px 5% 64px; }
+  .page-header-inner { max-width: 760px; margin: 0 auto; }
+  .page-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); font-weight: 700; margin-bottom: 16px; }
+  .page-title { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 5vw, 52px); color: var(--white); letter-spacing: -0.03em; line-height: 1.1; }
+  .page-meta { font-size: 14px; color: #666; margin-top: 16px; }
+
+  .content { max-width: 760px; margin: 0 auto; padding: 64px 5% 80px; }
+  .content h2 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 20px; color: var(--dark); letter-spacing: -0.02em; margin: 48px 0 14px; }
+  .content h2:first-child { margin-top: 0; }
+  .content p { font-size: 15px; color: #444; line-height: 1.8; margin-bottom: 14px; }
+  .content ul { padding-left: 20px; margin-bottom: 14px; }
+  .content ul li { font-size: 15px; color: #444; line-height: 1.8; margin-bottom: 6px; }
+  .content a { color: var(--orange); text-decoration: none; }
+  .content a:hover { text-decoration: underline; }
+  .content .intro { font-size: 16px; color: var(--mid); line-height: 1.8; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #eee; }
+
+  /* Opt-in mockup */
+  .optin-demo { background: var(--light); border-radius: 20px; padding: 40px; margin: 40px 0; border: 1px solid #e8e4de; }
+  .optin-demo-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 20px; }
+  .optin-demo-title { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 18px; color: var(--dark); margin-bottom: 24px; }
+  .mock-form { background: var(--white); border-radius: 12px; padding: 28px; border: 1px solid #e5e0d9; }
+  .mock-field { margin-bottom: 20px; }
+  .mock-field label { display: block; font-size: 12px; font-weight: 600; color: #555; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 6px; }
+  .mock-input { width: 100%; border: 1px solid #ddd; border-radius: 8px; padding: 11px 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #222; background: var(--white); }
+  .mock-checkbox-row { display: flex; align-items: flex-start; gap: 12px; padding: 16px; background: #fff8f0; border: 1px solid rgba(255,140,0,0.2); border-radius: 10px; margin-bottom: 20px; }
+  .mock-checkbox { width: 20px; height: 20px; border: 2px solid var(--orange); border-radius: 4px; background: var(--orange); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .mock-checkbox svg { display: block; }
+  .mock-checkbox-text { font-size: 14px; color: #333; line-height: 1.6; }
+  .mock-checkbox-text strong { color: var(--dark); }
+  .mock-button { display: block; width: 100%; background: var(--dark); color: var(--white); border: none; border-radius: 10px; padding: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-align: center; }
+  .optin-demo-caption { font-size: 13px; color: var(--muted); margin-top: 16px; line-height: 1.6; }
+
+  /* SMS example */
+  .sms-example { background: #f0f4f8; border-radius: 16px; padding: 28px; margin: 32px 0; }
+  .sms-example-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #666; font-weight: 700; margin-bottom: 16px; }
+  .sms-bubble { background: var(--white); border-radius: 12px 12px 12px 4px; padding: 16px 18px; max-width: 88%; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .sms-sender { font-size: 11px; font-weight: 700; color: var(--orange); margin-bottom: 6px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .sms-text { font-size: 14px; color: #222; line-height: 1.65; }
+  .sms-timestamp { font-size: 11px; color: #aaa; margin-top: 10px; }
+
+  footer { background: #0d0d0d; padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .footer-logo-badge { width: 32px; height: 32px; border-radius: 9px; background: var(--grad); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .footer-logo-badge::after { content: ''; position: absolute; top: -8px; left: -8px; width: 18px; height: 18px; background: rgba(255,255,255,0.15); border-radius: 50%; }
+  .footer-logo-badge svg { position: relative; z-index: 1; }
+  .footer-wordmark { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 18px; color: var(--white); letter-spacing: -0.03em; }
+  .footer-wordmark span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-links a { font-size: 13px; color: #555; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--orange); }
+  .footer-copy { font-size: 12px; color: #444; }
+
+  @media (max-width: 768px) {
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
+    .optin-demo { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="mika-logo-nav-gray-bg.png" alt="Mika AI Receptionist" height="72" style="display:block;">
+  </a>
+  <a href="https://app.callmika.com/signup" class="nav-cta">Start Free Trial</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-label">Legal</div>
+    <h1 class="page-title">SMS Notification Terms</h1>
+    <div class="page-meta">Mika Technologies, LLC &nbsp;·&nbsp; Last updated: June 29, 2026</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <p class="intro">Mika sends SMS text message notifications to law firm subscribers after each call. This page describes what those messages contain, how you opt in, how message frequency is determined, and how to opt out at any time.</p>
+
+  <h2>What These Messages Are</h2>
+  <p>When Mika answers a call on your firm's behalf, you receive an immediate SMS notification containing:</p>
+  <ul>
+    <li>The caller's name and phone number</li>
+    <li>A brief summary of the caller's legal matter</li>
+    <li>A link to the full call transcript and intake details in your dashboard</li>
+  </ul>
+  <p>These are transactional service notifications — not marketing messages. They are sent only when your Mika assistant completes a call.</p>
+
+  <h2>How You Opt In</h2>
+  <p>SMS notifications are optional. You opt in during account setup by checking the SMS opt-in checkbox and entering your mobile phone number. You will not receive SMS messages unless you explicitly check this box.</p>
+
+  <div class="optin-demo">
+    <div class="optin-demo-label">Example — How opt-in appears during account setup</div>
+    <div class="optin-demo-title">Account Notification Settings</div>
+    <div class="mock-form">
+      <div class="mock-field">
+        <label>Mobile phone number for SMS alerts</label>
+        <input class="mock-input" type="tel" value="(919) 555-0100" readonly>
+      </div>
+      <div class="mock-checkbox-row">
+        <div class="mock-checkbox">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="mock-checkbox-text">
+          <strong>Send me SMS notifications after each call.</strong> I agree to receive text message call summaries from Mika (Mika Technologies, LLC) at the number above. Message and data rates may apply. Message frequency varies based on call volume. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for support. See <a href="/sms" style="color:#FF8C00;">SMS Terms</a> and <a href="/privacy" style="color:#FF8C00;">Privacy Policy</a>.
+        </div>
+      </div>
+      <div class="mock-button">Save Settings</div>
+    </div>
+    <div class="optin-demo-caption">This is a representative example of the opt-in flow. The actual UI may vary.</div>
+  </div>
+
+  <h2>Message Frequency</h2>
+  <p>Message frequency depends on your call volume. You will receive one SMS per completed call that Mika handles — typically 1–30 messages per day depending on your firm's incoming call volume. During periods of high call volume, you may receive more messages. You can always mute notifications or adjust settings from your Mika dashboard.</p>
+
+  <h2>Example Message</h2>
+
+  <div class="sms-example">
+    <div class="sms-example-label">Example SMS notification</div>
+    <div class="sms-bubble">
+      <div class="sms-sender">Mika · callmika.com</div>
+      <div class="sms-text">
+        📞 New call from Marcus Williams<br>
+        DWI · Wake County<br>
+        Callback: (919) 555-0147<br>
+        <br>
+        View full transcript → app.callmika.com/calls/…
+      </div>
+      <div class="sms-timestamp">Just now</div>
+    </div>
+  </div>
+
+  <h2>Message and Data Rates</h2>
+  <p>Standard message and data rates from your wireless carrier may apply. Mika does not charge separately for SMS notifications — they are included in your subscription. Check with your carrier if you have questions about your messaging plan.</p>
+
+  <h2>How to Opt Out</h2>
+  <p>You can opt out of SMS notifications at any time by:</p>
+  <ul>
+    <li>Replying <strong>STOP</strong> to any Mika text message. You will receive one confirmation message and no further SMS notifications.</li>
+    <li>Unchecking the SMS notification setting in your Mika account dashboard under Account Settings.</li>
+    <li>Contacting support at <a href="mailto:ops@callmika.com">ops@callmika.com</a>.</li>
+  </ul>
+  <p>After opting out, you will continue to receive call summaries by email (email notifications are required for the service to function).</p>
+
+  <h2>How to Get Help</h2>
+  <p>Reply <strong>HELP</strong> to any Mika SMS message, or contact us at <a href="mailto:ops@callmika.com">ops@callmika.com</a>. We respond to support requests within one business day.</p>
+
+  <h2>Carriers</h2>
+  <p>Mika SMS notifications are delivered through Twilio and are compatible with all major U.S. wireless carriers including AT&amp;T, Verizon, T-Mobile, and others. Carrier is not liable for delayed or undelivered messages.</p>
+
+  <h2>Privacy</h2>
+  <p>We will not share your mobile phone number with third parties for their marketing purposes. Your number is used solely to deliver Mika call notifications. See our <a href="/privacy">Privacy Policy</a> for complete details on how we handle your data.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about SMS notifications? Contact us at <a href="mailto:ops@callmika.com">ops@callmika.com</a>.</p>
+  <p>Mika Technologies, LLC<br>Chapel Hill, North Carolina</p>
+
+</div>
+
+<footer>
+  <a href="/" class="footer-logo">
+    <div class="footer-logo-badge">
+      <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
+        <rect x="2" y="11" width="3.5" height="10" rx="1.75" fill="white"/>
+        <rect x="8" y="7" width="3.5" height="18" rx="1.75" fill="white"/>
+        <rect x="14" y="4" width="3.5" height="24" rx="1.75" fill="white"/>
+        <rect x="20" y="8" width="3.5" height="16" rx="1.75" fill="white"/>
+        <rect x="26" y="12" width="3.5" height="8" rx="1.75" fill="white" opacity="0.75"/>
+      </svg>
+    </div>
+    <div class="footer-wordmark">mi<span>ka</span></div>
+  </a>
+  <div class="footer-links">
+    <a href="mailto:hello@callmika.com">hello@callmika.com</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms of Service</a>
+    <a href="/sms">SMS Terms</a>
+  </div>
+  <div class="footer-copy">© 2026 Mika Technologies, LLC</div>
+</footer>
+
+</body>
+</html>

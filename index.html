@@ -264,6 +264,27 @@ src="https://www.facebook.com/tr?id=746642248493749&ev=PageView&noscript=1"
     from { transform: translateY(14px); }
     to { transform: translateY(0); }
   }
+  @media (max-width: 760px) {
+    .mk-root { display: block !important; overflow: visible !important; }
+    .mk-stage { aspect-ratio: auto !important; height: auto !important; overflow: visible !important; display: block !important; }
+    .mk-scene { position: relative !important; inset: auto !important; width: 100%; z-index: auto !important; }
+    .mk-col { position: static !important; width: auto !important; height: auto !important; justify-content: flex-start !important; padding: 40px 26px 26px; }
+    .mk-brand { position: static !important; top: auto !important; left: auto !important; margin: 0 0 36px 0 !important; gap: 14px !important; }
+    .mk-glow { width: clamp(58px, 16vw, 84px) !important; height: clamp(58px, 16vw, 84px) !important; left: -10px !important; filter: blur(7px) !important; }
+    .mk-logo { height: clamp(42px, 11.5vw, 58px) !important; }
+    .mk-chip { font-size: clamp(12px, 3.3vw, 14px) !important; padding: 6px 11px !important; gap: 7px !important; }
+    .mk-chip > span { width: 7px !important; height: 7px !important; }
+    .mk-content { width: 100%; }
+    .mk-kicker { margin-bottom: 22px !important; gap: 9px !important; padding: 9px 15px !important; }
+    .mk-kicker svg { width: 19px !important; height: 19px !important; }
+    .mk-kicker > span { font-size: clamp(13px, 3.7vw, 16px) !important; }
+    .mk-div { height: 15px !important; }
+    .mk-h1 { font-size: clamp(36px, 11.5vw, 58px) !important; }
+    .mk-sub { font-size: clamp(16px, 4.4vw, 20px) !important; max-width: 34ch !important; margin-top: 18px !important; }
+    .mk-ctas { margin-top: 26px !important; gap: 12px !important; flex-wrap: wrap; }
+    .mk-btn { font-size: clamp(16px, 4.3vw, 18px) !important; padding: 15px 24px !important; border-radius: 12px !important; }
+    .mk-btn > span { width: 9px !important; height: 9px !important; }
+  }
 </style>
 </head>
 <body>
@@ -316,17 +337,8 @@ src="https://www.facebook.com/tr?id=746642248493749&ev=PageView&noscript=1"
 END LEGACY HERO -->
 
 <!-- ANIMATED CANVAS HERO -->
-<div id="mika-hero-root" style="position: relative; width: 100%; display: flex; align-items: center; justify-content: center; background: var(--page, #1A150F); overflow: hidden;">
-  <nav>
-    <div style="display: flex; align-items: center; gap: 16px;">
-      <a href="/" class="nav-logo">
-        <img src="mika_logo-dark.png" alt="Mika AI Receptionist" height="40" style="display:block;">
-      </a>
-      <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background: rgba(255,255,255,0.07); font-size: 12px; font-weight: 600; color: #A99A88; white-space: nowrap;">
-        <span style="width: 7px; height: 7px; border-radius: 50%; background: #FF9E00; display: inline-block; animation: mikaDotPulse 1.8s ease-in-out infinite;"></span>
-        Answering now
-      </span>
-    </div>
+<div class="mk-root" style="position: relative; width: 100%; display: flex; align-items: center; justify-content: center; background: var(--page, #1A150F); overflow: hidden;">
+  <nav style="justify-content: flex-end;">
     <div class="nav-links">
       <a href="#how">How It Works</a>
       <a href="#pricing">Pricing</a>
@@ -339,30 +351,49 @@ END LEGACY HERO -->
       <span></span><span></span><span></span>
     </button>
   </nav>
-  <div id="mika-hero-stage" style="position: relative; width: 100%; aspect-ratio: 16/9; container-type: size; overflow: hidden;">
-    <canvas id="mika-hero-canvas" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block;"></canvas>
-    <div style="position: absolute; left: calc(var(--u, 9px) * 4.5); top: 0; height: 100%; width: calc(var(--u, 9px) * 34); display: flex; flex-direction: column; justify-content: center; pointer-events: none;">
-      <div style="display: flex; flex-direction: column; animation: mikaFadeUp 0.9s ease 0.1s both;">
-        <div style="display: inline-flex; align-items: center; align-self: flex-start; flex-shrink: 0; white-space: nowrap; gap: calc(var(--u, 9px) * 0.7); padding: calc(var(--uh, 5px) * 1.05) calc(var(--u, 9px) * 1.3); border-radius: 999px; background: rgba(255,158,0,0.13); border: 1px solid rgba(255,158,0,0.4); margin-bottom: calc(var(--uh, 5px) * 2.4);">
+  <div class="mk-stage" style="position: relative; width: 100%; aspect-ratio: 16 / 9; container-type: size; overflow: hidden;">
+
+    <!-- Left editorial column -->
+    <div class="mk-col" style="position: absolute; z-index: 1; left: calc(var(--u, 9px) * 4.5); top: 0; height: 100%; width: calc(var(--u, 9px) * 34); display: flex; flex-direction: column; justify-content: center; pointer-events: none;">
+
+      <div class="mk-brand" style="position: absolute; top: calc(var(--uh, 5px) * 7); left: 0; display: flex; align-items: center; gap: calc(var(--u, 9px) * 1.4); animation: mikaFadeUp 0.8s ease both;">
+        <div style="position: relative; display: inline-flex;">
+          <div data-glow="" class="mk-glow" style="position: absolute; left: calc(var(--u, 9px) * -1.4); top: 50%; transform: translateY(-50%); width: calc(var(--u, 9px) * 9.8); height: calc(var(--u, 9px) * 9.8); border-radius: 50%; background: radial-gradient(circle, rgba(255,158,0,0.55), rgba(255,158,0,0) 68%); filter: blur(calc(var(--u, 9px) * 0.7)); z-index: 0; pointer-events: none;"></div>
+          <img src="mika_logo-dark.png" alt="Mika — AI Receptionist" class="mk-logo" style="position: relative; z-index: 1; height: calc(var(--u, 9px) * 6.4); width: auto; display: block;">
+        </div>
+        <span class="mk-chip" style="display: inline-flex; align-items: center; gap: calc(var(--u, 9px) * 0.55); padding: calc(var(--uh, 5px) * 0.5) calc(var(--u, 9px) * 1); border-radius: 999px; background: var(--chip, rgba(255,255,255,0.07)); font-size: calc(var(--u, 9px) * 0.95); font-weight: 600; letter-spacing: 0.02em; color: var(--sub, #A99A88);">
+          <span style="width: calc(var(--u, 9px) * 0.62); height: calc(var(--u, 9px) * 0.62); border-radius: 50%; background: var(--accent, #FF9E00); animation: mikaDotPulse 1.8s ease-in-out infinite;"></span>
+          Answering now
+        </span>
+      </div>
+
+      <div class="mk-content" style="display: flex; flex-direction: column; animation: mikaFadeUp 0.9s ease 0.1s both;">
+        <div class="mk-kicker" style="display: inline-flex; align-items: center; align-self: flex-start; flex-shrink: 0; white-space: nowrap; gap: calc(var(--u, 9px) * 0.7); padding: calc(var(--uh, 5px) * 1.05) calc(var(--u, 9px) * 1.3); border-radius: 999px; background: rgba(255,158,0,0.13); border: 1px solid rgba(255,158,0,0.4); margin-bottom: calc(var(--uh, 5px) * 2.4);">
           <svg viewBox="0 0 24 24" style="width: calc(var(--u, 9px) * 1.55); height: calc(var(--u, 9px) * 1.55); flex-shrink: 0; display: block;">
             <circle cx="12" cy="12" r="11" fill="var(--accent, #FF9E00)"></circle>
             <path d="M7 12.4 L10.4 15.8 L17 8.6" fill="none" stroke="#1A140C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
           <span style="font-size: calc(var(--u, 9px) * 1.1); font-weight: 700; letter-spacing: -0.01em; color: var(--accent, #FF9E00);">Built by a lawyer</span>
-          <span style="width: 1px; height: calc(var(--u, 9px) * 1.5); background: var(--btnline, rgba(255,255,255,0.28));"></span>
+          <span class="mk-div" style="width: 1px; height: calc(var(--u, 9px) * 1.5); background: var(--btnline, rgba(255,255,255,0.28));"></span>
           <span style="font-size: calc(var(--u, 9px) * 1.1); font-weight: 700; letter-spacing: -0.01em; color: var(--ink, #F2E9DD);">Trusted by law firms</span>
         </div>
-        <h1 style="margin: 0; font-family: 'Spectral', Georgia, serif; font-weight: 500; font-size: calc(var(--u, 9px) * 4.3); line-height: 1.02; letter-spacing: -0.01em; color: var(--ink, #F2E9DD); text-wrap: balance;">Never miss a call.<br><em style="font-style: italic; font-weight: 500; color: var(--accent, #FF9E00);">Never miss a case.</em></h1>
-        <p style="margin: calc(var(--uh, 5px) * 2.2) 0 0; max-width: calc(var(--u, 9px) * 28); font-size: calc(var(--u, 9px) * 1.25); line-height: 1.5; color: var(--sub, #A99A88);">In court, with a client, or after hours — Mika picks up every call you can't, and handles the intake.</p>
-        <div style="display: flex; align-items: center; gap: calc(var(--u, 9px) * 0.9); margin-top: calc(var(--uh, 5px) * 3); pointer-events: auto;">
-          <a href="https://app.callmika.com/signup" style="display: inline-flex; align-items: center; flex-shrink: 0; white-space: nowrap; padding: calc(var(--uh, 5px) * 1.7) calc(var(--u, 9px) * 1.9); border-radius: calc(var(--u, 9px) * 0.7); background: var(--accent, #FF9E00); color: #1A140C; font-size: calc(var(--u, 9px) * 1.15); font-weight: 700; letter-spacing: -0.01em; text-decoration: none; box-shadow: 0 calc(var(--u, 9px) * 0.4) calc(var(--u, 9px) * 1.7) rgba(255,158,0,0.3);">Start Free Trial</a>
-          <a href="tel:+19847332176" style="display: inline-flex; align-items: center; flex-shrink: 0; white-space: nowrap; gap: calc(var(--u, 9px) * 0.55); padding: calc(var(--uh, 5px) * 1.7) calc(var(--u, 9px) * 1.6); border-radius: calc(var(--u, 9px) * 0.7); background: transparent; color: var(--ink, #F2E9DD); font-size: calc(var(--u, 9px) * 1.15); font-weight: 600; text-decoration: none; border: 1px solid var(--btnline, rgba(255,255,255,0.22));">
+        <h1 class="mk-h1" style="margin: 0; font-family: 'Spectral', Georgia, serif; font-weight: 500; font-size: calc(var(--u, 9px) * 4.3); line-height: 1.02; letter-spacing: -0.01em; color: var(--ink, #F2E9DD); text-wrap: balance;">Never miss a call.<br><em style="font-style: italic; font-weight: 500; color: var(--accent, #FF9E00);">Never miss a case.</em></h1>
+        <p class="mk-sub" style="margin: calc(var(--uh, 5px) * 2.2) 0 0; max-width: calc(var(--u, 9px) * 28); font-size: calc(var(--u, 9px) * 1.25); line-height: 1.5; color: var(--sub, #A99A88);">In court, with a client, or after hours — Mika picks up every call you can't, and handles the intake.</p>
+        <div class="mk-ctas" style="display: flex; align-items: center; gap: calc(var(--u, 9px) * 0.9); margin-top: calc(var(--uh, 5px) * 3); pointer-events: auto;">
+          <a href="https://app.callmika.com/signup" class="mk-btn mk-btn-primary" style="display: inline-flex; align-items: center; flex-shrink: 0; white-space: nowrap; padding: calc(var(--uh, 5px) * 1.7) calc(var(--u, 9px) * 1.9); border-radius: calc(var(--u, 9px) * 0.7); background: var(--accent, #FF9E00); color: #1A140C; font-size: calc(var(--u, 9px) * 1.15); font-weight: 700; letter-spacing: -0.01em; text-decoration: none; box-shadow: 0 calc(var(--u, 9px) * 0.4) calc(var(--u, 9px) * 1.7) rgba(255,158,0,0.3);">Start Free Trial</a>
+          <a href="tel:+19847332176" class="mk-btn" style="display: inline-flex; align-items: center; flex-shrink: 0; white-space: nowrap; gap: calc(var(--u, 9px) * 0.55); padding: calc(var(--uh, 5px) * 1.7) calc(var(--u, 9px) * 1.6); border-radius: calc(var(--u, 9px) * 0.7); background: transparent; color: var(--ink, #F2E9DD); font-size: calc(var(--u, 9px) * 1.15); font-weight: 600; text-decoration: none; border: 1px solid var(--btnline, rgba(255,255,255,0.22));">
             <span style="width: calc(var(--u, 9px) * 0.55); height: calc(var(--u, 9px) * 0.55); border-radius: 50%; background: var(--accent, #FF9E00);"></span>
             Hear Mika Live
           </a>
         </div>
       </div>
+
     </div>
+
+    <div class="mk-scene" style="position: absolute; inset: 0; z-index: 0;">
+      <canvas class="mk-canvas" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block;"></canvas>
+    </div>
+
   </div>
 </div>
 
@@ -787,7 +818,8 @@ if (typeof ResizeObserver !== 'undefined') {
 (function() {
   'use strict';
   var ACCENT = '#FF9E00', SPEED = 0.9;
-  var _stopped = false, _raf, _timer, stageEl;
+  var _stopped = false, _raf, _timer;
+  var showCards = true;
 
   function palette() {
     return {
@@ -800,7 +832,7 @@ if (typeof ResizeObserver !== 'undefined') {
   }
 
   function applyVars() {
-    var r = document.getElementById('mika-hero-root'); if (!r) return;
+    var r = document.querySelector('.mk-root'); if (!r) return;
     var p = palette();
     r.style.setProperty('--page', p.page);
     r.style.setProperty('--ink', p.ink);
@@ -819,12 +851,13 @@ if (typeof ResizeObserver !== 'undefined') {
   }
 
   function start() {
-    var cvs = document.getElementById('mika-hero-canvas'); if (!cvs) return;
-    stageEl = document.getElementById('mika-hero-stage');
+    var cvs = document.querySelector('.mk-canvas'); if (!cvs) return;
+    var stageEl = document.querySelector('.mk-stage');
     var ctx = cvs.getContext('2d');
     var DW = 1600, DH = 900;
     var orb = { x: 800, y: 466, r: 132 };
     var stack = { x: 1108, y0: 196, rowH: 141, w: 404, h: 126, max: 4 };
+    var sp = { x0: 540, x1: 1060, topY: -70, botY: 970, ctrl: 220, off: 230 };
     var samples = [
       { name: 'Marcus Williams', matter: 'DWI', county: 'Wake County', time: '2:47 AM' },
       { name: 'Sarah Chen', matter: 'Contract dispute', county: 'Durham County', time: '11:34 PM' },
@@ -852,14 +885,15 @@ if (typeof ResizeObserver !== 'undefined') {
 
     function spawn(now) {
       var d=samples[sIdx++%samples.length], top=Math.random()<0.5;
-      calls.push({data:d,from:{x:540+Math.random()*520,y:top?-70:970},ctrl:{x:orb.x+(Math.random()*220-110),y:top?orb.y-230:orb.y+230},start:now,dur:1.75,trail:[],done:false,u:0});
+      var from={x:sp.x0+Math.random()*(sp.x1-sp.x0),y:top?sp.topY:sp.botY};
+      var ctrl={x:orb.x+(Math.random()*sp.ctrl-sp.ctrl/2),y:top?orb.y-sp.off:orb.y+sp.off};
+      calls.push({data:d,from:from,ctrl:ctrl,start:now,dur:1.75,trail:[],done:false,u:0});
     }
 
     function addCard(d,now) {
       cards.forEach(function(k){k.slot++;});
       cards.unshift({data:d,slot:0,x:orb.x-stack.w/2,y:orb.y-stack.h/2,born:now,dead:null});
       cards.forEach(function(k){if(k.slot>=stack.max&&k.dead==null)k.dead=now;});
-      totalHandled++;
     }
 
     function drawOrb(c,P) {
@@ -936,11 +970,33 @@ if (typeof ResizeObserver !== 'undefined') {
     function step(dt) {
       vt+=dt;
       var P=palette();
+      var cw=cvs.clientWidth, ch=cvs.clientHeight, dpr=Math.min(2,window.devicePixelRatio||1);
+      if(cvs.width!==Math.round(cw*dpr)||cvs.height!==Math.round(ch*dpr)){cvs.width=Math.round(cw*dpr);cvs.height=Math.round(ch*dpr);}
+
+      var scene = cvs.parentElement;
+      if (cw > 0 && cw < 760) {
+        showCards = false;
+        scene.style.setProperty('height', Math.round(cw)+'px', 'important');
+        var colEl = stageEl ? stageEl.querySelector('.mk-col') : null;
+        if (stageEl) stageEl.style.setProperty('height', ((colEl?colEl.offsetHeight:0)+Math.round(cw))+'px', 'important');
+        var ch2 = cvs.clientHeight;
+        DW=900; DH=900*ch2/cw;
+        orb.x=450; orb.y=DH*0.44; orb.r=150;
+        sp.x0=175; sp.x1=725; sp.topY=-90; sp.botY=DH+90; sp.ctrl=230; sp.off=215;
+        if(cards.length) cards.length=0;
+      } else {
+        showCards = true;
+        scene.style.removeProperty('height');
+        if(stageEl) stageEl.style.removeProperty('height');
+        DW=1600; DH=900;
+        orb.x=800; orb.y=466; orb.r=132;
+        sp.x0=540; sp.x1=1060; sp.topY=-70; sp.botY=970; sp.ctrl=220; sp.off=230;
+      }
+
       if(vt-lastSpawn>1.55){lastSpawn=vt;spawn(vt);}
-      var cw=cvs.clientWidth,cH=cvs.clientHeight,dpr=Math.min(2,window.devicePixelRatio||1);
-      if(cvs.width!==Math.round(cw*dpr)||cvs.height!==Math.round(cH*dpr)){cvs.width=Math.round(cw*dpr);cvs.height=Math.round(cH*dpr);}
+
       var s=cw/DW;
-      if(stageEl){stageEl.style.setProperty('--u',(cw/100)+'px');stageEl.style.setProperty('--uh',(cH/100)+'px');}
+      if(stageEl){stageEl.style.setProperty('--u',(cw/100)+'px');stageEl.style.setProperty('--uh',(ch/100)+'px');}
       ctx.setTransform(dpr*s,0,0,dpr*s,0,0);
       ctx.clearRect(0,0,DW,DH);
       ctx.fillStyle=P.bg; ctx.fillRect(0,0,DW,DH);
@@ -949,14 +1005,15 @@ if (typeof ResizeObserver !== 'undefined') {
         var u=(vt-cl.start)/cl.dur; cl.u=u;
         cl.pos=quad(cl.from,cl.ctrl,{x:orb.x,y:orb.y},ease(clamp(u,0,1)));
         cl.trail.push({x:cl.pos.x,y:cl.pos.y}); if(cl.trail.length>11)cl.trail.shift();
-        if(u>=1&&!cl.done){cl.done=true;ripples.push({start:vt});voice=1;addCard(cl.data,vt);}
+        if(u>=1&&!cl.done){cl.done=true;ripples.push({start:vt});voice=1;totalHandled++;if(showCards)addCard(cl.data,vt);}
       });
       calls=calls.filter(function(c){return c.u<1.04;});
       voice+=(0.22-voice)*Math.min(1,dt*2.2);
 
       for(var i=0;i<NB;i++){
         var ph=vt*6+i*0.7,n=(Math.sin(ph)+Math.sin(ph*1.7+i)+Math.sin(ph*0.5+i*2))/3;
-        bars[i]+=((0.12+(n+1)/2*0.88)*(0.22+voice*0.95)*(0.45+0.55*Math.sin(Math.PI*(i+0.5)/NB))-bars[i])*Math.min(1,dt*14);
+        var ww=Math.sin(Math.PI*(i+0.5)/NB);
+        bars[i]+=((0.12+(n+1)/2*0.88)*(0.22+voice*0.95)*(0.45+0.55*ww)-bars[i])*Math.min(1,dt*14);
       }
       ripples=ripples.filter(function(r){return vt-r.start<1.3;});
 
@@ -968,19 +1025,27 @@ if (typeof ResizeObserver !== 'undefined') {
       });
       calls.forEach(function(cl){drawPill(ctx,P,cl);});
 
-      ctx.textAlign='left'; ctx.textBaseline='alphabetic';
-      ctx.fillStyle=P.sub; ctx.font="700 13px 'Hanken Grotesk',sans-serif";
-      var hx=stack.x,label='HANDLED TONIGHT';
-      for(var li=0;li<label.length;li++){ctx.fillText(label[li],hx,stack.y0-28);hx+=ctx.measureText(label[li]).width+2.4;}
-      ctx.fillStyle=P.accent; ctx.font="700 14px 'Hanken Grotesk',sans-serif";
-      ctx.fillText(String(totalHandled),hx+10,stack.y0-28);
-
-      cards.forEach(function(k){
-        var f=Math.min(1,dt*7);
-        k.x+=(stack.x-k.x)*f; k.y+=(stack.y0+k.slot*stack.rowH-k.y)*f;
-      });
-      cards=cards.filter(function(k){return!(k.dead!=null&&vt-k.dead>0.55);});
-      for(var ci=cards.length-1;ci>=0;ci--)drawCard(ctx,P,cards[ci],vt);
+      if(showCards) {
+        ctx.textAlign='left'; ctx.textBaseline='alphabetic';
+        ctx.fillStyle=P.sub; ctx.font="700 13px 'Hanken Grotesk',sans-serif";
+        var hx=stack.x,label='HANDLED TONIGHT';
+        for(var li=0;li<label.length;li++){ctx.fillText(label[li],hx,stack.y0-28);hx+=ctx.measureText(label[li]).width+2.4;}
+        ctx.fillStyle=P.accent; ctx.font="700 14px 'Hanken Grotesk',sans-serif";
+        ctx.fillText(String(totalHandled),hx+10,stack.y0-28);
+        cards.forEach(function(k){
+          var f=Math.min(1,dt*7);
+          k.x+=(stack.x-k.x)*f; k.y+=(stack.y0+k.slot*stack.rowH-k.y)*f;
+        });
+        cards=cards.filter(function(k){return!(k.dead!=null&&vt-k.dead>0.55);});
+        for(var ci=cards.length-1;ci>=0;ci--)drawCard(ctx,P,cards[ci],vt);
+      } else {
+        ctx.textAlign='center'; ctx.textBaseline='alphabetic';
+        ctx.fillStyle=P.sub; ctx.font="700 30px 'Hanken Grotesk',sans-serif";
+        ctx.fillText('HANDLED TONIGHT',orb.x,orb.y+orb.r+98);
+        ctx.fillStyle=P.accent; ctx.font="800 80px 'Hanken Grotesk',sans-serif";
+        ctx.fillText(String(totalHandled),orb.x,orb.y+orb.r+190);
+        ctx.textAlign='left';
+      }
     }
 
     function loop(now){

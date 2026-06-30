@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "mika-website",
+  "name": "callmika",
   "compatibility_date": "2026-06-23",
   "assets": {
     "directory": "."
